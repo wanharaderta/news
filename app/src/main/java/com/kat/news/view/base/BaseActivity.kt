@@ -1,0 +1,63 @@
+package com.kat.news.view.base
+
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
+import com.kat.news.R
+
+/**
+ *
+ * Created by Wanhar Aderta Daeng Maro on 5/18/2018.
+ * Email : wanhardaengmaro@gmail.com
+ *
+ */
+
+open class BaseActivity : AppCompatActivity(){
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+
+
+    fun setFragment(fragment: Fragment, tag: String, addToBackStack: Boolean, animRes: IntArray?) {
+        if (tag == currentFragmentTag) {
+            return
+        }
+
+        val fragmentTransaction = supportFragmentManager!!.beginTransaction()
+        if (animRes != null) {
+            fragmentTransaction.setCustomAnimations(animRes[0], animRes[1], animRes[2], animRes[3])
+        }
+        fragmentTransaction.replace(R.id.fragment_container, fragment, tag)
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(tag)
+        }
+        fragmentTransaction.commit()
+    }
+
+    val currentFragment: Fragment?
+        get() = supportFragmentManager!!.findFragmentById(R.id.fragment_container)
+
+    private val currentFragmentTag: String?
+        get() {
+            val f = currentFragment
+            return f?.tag
+        }
+
+//    fun showProgressDialog() {
+//        progress_dialog.visibility = View.VISIBLE
+//    }
+//
+//    fun hideProgressDialog() {
+//        progress_dialog.visibility = View.GONE
+//    }
+
+//    fun showToast(message: String) {
+//        ToastUtils.showToast(this, message)
+//    }
+//
+//    fun showToast(message: Int) {
+//        ToastUtils.showToast(this, message)
+//    }
+}
