@@ -8,7 +8,7 @@ package com.kat.news.view.base
  */
 interface Presenter<in T : View> {
 
-    fun onAttach()
+    fun onAttach(view: T)
 
     fun onDetach()
 }

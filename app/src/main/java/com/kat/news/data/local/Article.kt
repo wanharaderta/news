@@ -9,9 +9,9 @@ import android.os.Parcelable
  * Email : wanhardaengmaro@gmail.com
  *
  */
-data class Article(var author: String, var title: String,
-                   var desc: String, var url: String,
-                   var urlToImage: String, var publishedAt: String) : Parcelable {
+data class Article(var author: String?, var title: String?,
+                   var desc: String?, var url: String?,
+                   var urlToImage: String?, var publishedAt: String?) : Parcelable {
     constructor(source: Parcel) : this(
             source.readString(),
             source.readString(),

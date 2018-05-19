@@ -14,6 +14,7 @@ import retrofit2.http.Query
 interface Api{
 
     @GET("v2/top-headlines")
-    fun getArticle(@Query("sources") sources: String,
-                      @Query("apiKey") key: String): Flowable<RemoteArticles>
+    fun getArticle(
+            @Query("country") country: String,
+            @Query("apiKey") key: String): Flowable<RemoteArticles>
 }

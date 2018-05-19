@@ -11,14 +11,16 @@ import io.reactivex.functions.Function
 
 class ArticleService(private val api: Api) {
 
-    fun getArticle(key: String, sortBy: String,
+    fun getArticle(country: String, key: String,
                    callback: NetworkCallback<RemoteArticles>): Disposable {
-        return api.getArticle(key, sortBy)
+        return api.getArticle(country, key)
                 .compose(NetworkCallTransformer<RemoteArticles>())
                 .onErrorResumeNext(Function { Flowable.error { it } })
                 .subscribeWith(disposableSubscriber<RemoteArticles>(
                         next = { response -> callback.onSuccess(response) },
                         error = { exception -> callback.onError(exception) }
+
                 ))
+
     }
 }
