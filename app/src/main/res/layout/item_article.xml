@@ -27,7 +27,7 @@
         android:textSize="20sp" />
 
 
-    <com.makeramen.roundedimageview.RoundedImageView
+    <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -37,10 +37,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:layout_below="@+id/vtitle"
-        app:riv_border_color="@color/transparent"
-        app:riv_border_width="1dip"
-        app:riv_oval="true" />
+        android:layout_below="@+id/vtitle" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/vauthor"

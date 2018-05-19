@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.kat.news.R
 import com.kat.news.data.local.Article
 import com.kat.news.utils.loadImage
+import com.kat.news.utils.loadRoundedBitmap
 import kotlinx.android.synthetic.main.item_article.view.*
 
 /**
@@ -49,7 +50,8 @@ class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             itemView.vtitle.text    = title
             itemView.vauthor.text   = author
             itemView.vdate.text     = publishedAt
-            loadImage(context, article.urlToImage, itemView.vimage)
+            loadImage(context, urlToImage, itemView.vimage)
+            loadRoundedBitmap(context, urlToImage, itemView.profilePicture)
             itemView.setOnClickListener { listener.onClick(article) }
         }
     }

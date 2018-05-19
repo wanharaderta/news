@@ -39,3 +39,20 @@ internal fun loadImage(context: Context, url: String?, imageView: ImageView) {
                     .diskCacheStrategy(DiskCacheStrategy.RESOURCE))
             .into(imageView)
 }
+
+internal fun loadRoundedBitmap(context: Context, url: String?, imageView: ImageView) {
+
+    fun setMemoryCategory(context: Context) {
+        Glide.get(context).setMemoryCategory(MemoryCategory.NORMAL)
+    }
+
+    setMemoryCategory(context)
+    GlideApp.with(context)
+            .asBitmap()
+            .load(url)
+            .apply(RequestOptions().circleCrop())
+            .into(imageView)
+
+}
+
+
