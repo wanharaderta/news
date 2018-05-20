@@ -59,7 +59,7 @@
         android:layout_below="@+id/vtitle"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="22dp"
         android:textColor="@android:color/white"
         android:textSize="12sp" />
 

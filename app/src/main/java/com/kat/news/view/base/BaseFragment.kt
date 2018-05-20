@@ -1,7 +1,7 @@
 package com.kat.news.view.base
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 
 /**
  *
@@ -9,7 +9,7 @@ import android.os.Bundle
  * Email : wanhardaengmaro@gmail.com
  *
  */
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
 
     lateinit var activity: BaseActivity
 

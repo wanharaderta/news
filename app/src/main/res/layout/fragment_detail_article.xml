@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.detail.DetailArticleFragment">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+
+        <ImageView
+            android:id="@+id/vimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/action_bar_content"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/shadow_transparent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="140dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vdate"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/vtitle"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vauthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vtitle"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="28dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/vdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>

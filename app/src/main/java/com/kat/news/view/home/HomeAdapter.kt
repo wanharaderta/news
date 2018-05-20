@@ -48,7 +48,7 @@ class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         with(article){
             itemView.vtitle.text    = title
-            itemView.vauthor.text   = author
+            itemView.vauthor.text   = author?.take(15)
             itemView.vdate.text     = publishedAt
             loadImage(context, urlToImage, itemView.vimage)
             loadRoundedBitmap(context, urlToImage, itemView.profilePicture)

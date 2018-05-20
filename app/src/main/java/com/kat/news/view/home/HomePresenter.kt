@@ -54,7 +54,7 @@ class HomePresenter : Presenter<HomeView>{
         disposable.let { disposables?.add(it) }
     }
 
-    fun ArticleDetail(article: Article){
+    fun articleDetail(article: Article){
         view?.onOpenArticleDetail(article)
     }
 

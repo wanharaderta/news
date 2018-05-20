@@ -2,6 +2,7 @@ package com.kat.news.view.home
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.kat.news.R
 import com.kat.news.data.local.Article
 import com.kat.news.data.remote.RemoteArticles
@@ -9,7 +10,9 @@ import com.kat.news.deps.provider.NewsProvider
 import com.kat.news.service.ArticleService
 import com.kat.news.utils.getDate
 import com.kat.news.view.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.kat.news.view.detail.DetailActivity
+import kotlinx.android.synthetic.main.activity_home.*
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(),HomeView {
@@ -22,12 +25,10 @@ class HomeActivity : BaseActivity(),HomeView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
         (application as NewsProvider).providesNewsComponent().inject(this)
 
         fun initView(){
-
-            supportActionBar?.title = "News"
 
             val layoutManager = LinearLayoutManager(this)
             rvArticle.layoutManager = layoutManager
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity(),HomeView {
 
         val adapter= HomeAdapter(this,articles,object : HomeListener{
             override fun onClick(article: Article) {
-                presenter
+                presenter?.articleDetail(article)
             }
         })
         rvArticle.adapter = adapter
@@ -91,8 +92,11 @@ class HomeActivity : BaseActivity(),HomeView {
         super.onDestroy()
     }
 
-    override fun onOpenArticleDetail(articles: Article) {
-
+    override fun onOpenArticleDetail(article: Article) {
+        startActivity<DetailActivity>(
+                "article" to article
+        )
+        this.overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
     }
 
 
